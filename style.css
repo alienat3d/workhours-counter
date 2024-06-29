@@ -1,0 +1,67 @@
+body {
+	font-family: "Fira Sans", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 18px;
+}
+
+.container {
+	margin: 0 auto;
+	padding: 0 10px;
+	max-width: 1640px;
+	text-align: center;
+}
+
+.title, .result {
+	font-family: "Fira Sans", sans-serif;
+	font-weight: 600;
+	font-style: normal;
+}
+
+.input {
+	display: block;
+	margin: 10px auto;
+	padding: 5px 7px;
+	font-size: 22px;
+	width: 50%;
+}
+
+.result {
+	font-size: 38px;
+}
+
+.copy {position: relative;}
+
+.copy__btn {
+	margin-top: 10px;
+	cursor: pointer;
+	border: none;
+	width: 32px;
+	height: 32px;
+	background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M16 0c8.836 0 16 7.164 16 16s-7.164 16-16 16S0 24.836 0 16 7.164 0 16 0Zm0 0" style="stroke:none;fill-rule:evenodd;fill:%2390ee90;fill-opacity:1"/><path d="M10.25 8.5h7.418c3.2187 0 5.832 2.6133 5.832 5.832v7.418a4.1708 4.1708 0 0 0 2.1133-1.1367 4.1625 4.1625 0 0 0 1.2187-2.9453V9.332a4.1625 4.1625 0 0 0-1.2187-2.9453A4.1625 4.1625 0 0 0 22.668 5.168h-8.336a4.1625 4.1625 0 0 0-2.9453 1.2187A4.1708 4.1708 0 0 0 10.25 8.5Zm0 0" style="stroke:none;fill-rule:evenodd;fill:%23333;fill-opacity:1"/><path d="M21.832 14.332a4.1625 4.1625 0 0 0-1.2187-2.9453 4.1625 4.1625 0 0 0-2.9453-1.2187H9.332a4.1625 4.1625 0 0 0-2.9453 1.2187A4.1625 4.1625 0 0 0 5.168 14.332v8.336c0 1.1054.4375 2.164 1.2187 2.9453A4.1625 4.1625 0 0 0 9.332 26.832h8.336a4.1625 4.1625 0 0 0 2.9453-1.2187 4.1625 4.1625 0 0 0 1.2187-2.9453Zm-12.5 8.336h8.336c.457 0 .832-.375.832-.836 0-.457-.375-.832-.832-.832H9.332c-.457 0-.832.375-.832.832 0 .461.375.836.832.836Zm0-3.336h8.336c.457 0 .832-.371.832-.832 0-.461-.375-.832-.832-.832H9.332c-.457 0-.832.371-.832.832 0 .461.375.832.832.832Zm0-3.332h8.336c.457 0 .832-.375.832-.832 0-.461-.375-.836-.832-.836H9.332c-.457 0-.832.375-.832.836 0 .457.375.832.832.832Zm0 0" style="stroke:none;fill-rule:evenodd;fill:%23333;fill-opacity:1"/></svg>');
+}
+.copy__btn:active {
+	background-color: #90ee90;
+}
+
+.copy__alert {
+  opacity: 0;
+  display: block;
+  margin: auto;
+  border-radius: 30px;
+  position: absolute;
+  right: 0;
+  bottom: -270px;
+  left: 0;
+  padding: 5px 0;
+  width: 120px;
+  text-align: center;
+  font-size: 18px;
+  background-color: #555;
+  color: greenyellow;
+  transition: all 1s;
+}
+.copy__alert.show {
+  bottom: -70px;
+  opacity: 1;
+}
