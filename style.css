@@ -27,7 +27,12 @@ body {
 }
 
 .result {
-	font-size: 38px;
+	margin: 0 auto 20px;
+	padding: 7px 15px;
+	border-radius: 50%;
+	width: min-content;
+	height: 47px;
+	font-size: 40px;
 }
 
 .copy {position: relative;}
