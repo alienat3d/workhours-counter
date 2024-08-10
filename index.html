@@ -16,10 +16,13 @@
 <body>
 	<div class="container">
 		<h1 class="title">Work Hours Counter</h1>
-		<label class="label" for="">
-			Enter time periods in minutes in such format (m,mm,mmm...):
-			<input class="input" type="text" />
-		</label>
+		<div class="input-wrapper">
+			<label class="label" for="workminutes">
+				Enter time periods in minutes in such format (m,mm,mmm...):
+				<input class="input" type="text" id="workminutes" />
+			</label>
+			<button class="input-clear-btn" type="button"></button>
+		</div>
 		<p>It makes:</p>
 		<div class="result">0</div>
 		<div class="copy">

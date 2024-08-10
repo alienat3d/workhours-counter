@@ -1,6 +1,7 @@
 'use strict';
 
 const input = document.querySelector('.input');
+const clearBtn = document.querySelector('.input-clear-btn');
 const result = document.querySelector('.result');
 const copy = document.querySelector('.copy__btn');
 const alert = document.querySelector('.copy__alert');
@@ -37,6 +38,11 @@ const colorHours = (hours) => {
 
 // Adds up the minutes and calculates the hours from them
 input.addEventListener('input', () => {
+	input.value !== '' ? 
+		clearBtn.classList.add('visible') :
+		clearBtn.classList.remove('visible');
+
+	input.value = input.value.replace(/[^\d+,]/g, '');
 	const minutesArray = input.value.split(',');
 
 	const totalMinutes = minutesArray.reduce(function (sum, num) {
@@ -50,6 +56,19 @@ input.addEventListener('input', () => {
 
 	colorHours(totalHours);
 })
+
+input.addEventListener('focus', () => {
+	if (input.value !== '') clearBtn.classList.add('visible');
+});
+// input.addEventListener('blur', () => clearBtn.classList.remove('visible'));
+
+clearBtn.addEventListener('click', () => {
+	input.value = '';
+	clearBtn.classList.remove('visible');
+	input.focus();
+	result.textContent = '0';
+	result.style.backgroundColor = 'transparent';
+});
 
 // Copy output to clipboard & show notification bubble:
 copy.addEventListener('click', () => {
