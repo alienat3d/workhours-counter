@@ -58,7 +58,8 @@ input.addEventListener('input', () => {
 		clearBtn.classList.add('visible') :
 		clearBtn.classList.remove('visible');
 
-	input.value = input.value.replace(/[^\d+,]/g, '');
+	input.value = input.value.replace(/[^\d+,\.]/g, '');
+	input.value = input.value.replace(/\./g, ',');
 	const minutesArray = input.value.split(',');
 
 	const totalMinutes = minutesArray.reduce(function (sum, num) {
@@ -79,7 +80,6 @@ input.addEventListener('input', () => {
 input.addEventListener('focus', () => {
 	if (input.value !== '') clearBtn.classList.add('visible');
 });
-// input.addEventListener('blur', () => clearBtn.classList.remove('visible'));
 
 clearBtn.addEventListener('click', () => {
 	input.value = '';
