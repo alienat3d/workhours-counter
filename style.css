@@ -167,16 +167,6 @@ body.dark-mode {
 		background-color: transparent;
 	}
 }
-/* @media (min-width: 530px) {
-	.switch-mode-btn {
-		position: absolute;
-		top: -50px;
-		right: 250px;
-		cursor: pointer;
-		border: none;
-		background-color: transparent;
-	}
-} */
 
 .switch-mode-btn svg {
 	fill: #000;
