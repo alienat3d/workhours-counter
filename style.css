@@ -71,10 +71,15 @@ body.dark-mode {
 
 .input {
 	margin-top: 10px;
-	border: 0;
+	border-radius: 10px;
+	border: 1px solid #555;
 	padding: 7px 38px 5px 10px;
 	font-size: 22px;
 	width: 100%;
+	transition: border-color 2.5s ease-in-out;
+}
+.dark-mode .input {
+	border-color: transparent;
 }
 
 .input-clear-btn {
