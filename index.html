@@ -14,22 +14,30 @@
 </head>
 
 <body>
-	<div class="container">
-		<h1 class="title">Work Hours Counter</h1>
-		<div class="input-wrapper">
-			<label class="label" for="workminutes">
-				Enter time periods in minutes in such format (m,mm,mmm...):
-				<input class="input" type="text" id="workminutes" />
-			</label>
-			<button class="input-clear-btn" type="button"></button>
+	<main>
+		<div class="container">
+			<h1 class="title">Work Hours Counter</h1>
+			<div class="input-wrapper">
+				<label class="label" for="workminutes">
+					Enter time periods in minutes in such format (m,mm,mmm...):
+					<input class="input" type="text" id="workminutes" />
+				</label>
+				<button class="input-clear-btn" type="button"></button>
+			</div>
+			<p class="result-label">It makes:</p>
+			<div class="result">0</div>
+			<div class="copy">
+				<button class="copy__btn"></button>
+				<p class="copy__alert">Copied to clipboard!</p>
+			</div>
+			<button class="switch-mode-btn" type="button">
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+					<path d="M16 21.33a5.33 5.33 0 1 0 0-10.66Zm0 0" style="stroke:none;fill-rule:nonzero;fill-opacity:1"/>
+					<path d="M16 2.67a13.33 13.33 0 1 0 0 26.66 13.33 13.33 0 0 0 0-26.66Zm0 2.66v5.34a5.33 5.33 0 1 0 0 10.66v5.34a10.67 10.67 0 0 0 0-21.34Zm0 0" style="stroke:none;fill-rule:evenodd;fill-opacity:1"/>
+				</svg>
+			</button>
 		</div>
-		<p>It makes:</p>
-		<div class="result">0</div>
-		<div class="copy">
-			<button class="copy__btn"></button>
-			<p class="copy__alert">Copied to clipboard!</p>
-		</div>
-	</div>
+	</main>
 </body>
 
 </html>

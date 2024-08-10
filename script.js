@@ -1,18 +1,34 @@
 'use strict';
 
+const body = document.querySelector('body');
 const input = document.querySelector('.input');
 const clearBtn = document.querySelector('.input-clear-btn');
 const result = document.querySelector('.result');
 const copy = document.querySelector('.copy__btn');
 const alert = document.querySelector('.copy__alert');
+const modeSwitcherBtn = document.querySelector('.switch-mode-btn');
 
 let totalHours;
 let totalHoursOutput;
+console.log(localStorage.getItem("dark-mode"));
+
+// Determines, which color mode user picked last time
+localStorage.getItem("dark-mode") ? 
+	body.classList.add('dark-mode') :
+	body.classList.remove('dark-mode');
 
 // Paint the background color, depending on the value of the digit
 const colorHours = (hours) => {
+	if (body.classList.contains('dark-mode') && result.textContent === '0') {
+		result.style.color = '#90ee90';
+		result.style.backgroundColor = 'transparent';
+	} else {
+		result.style.color = '#000';
+		result.style.backgroundColor = 'transparent';
+	}
+
 	switch (true) {
-		case hours < 0.5:
+		case hours > 0 && hours < 0.5:
 			result.style.backgroundColor = 'lightpink';
 			break;
 		case hours >= 0.5 && hours < 2:
@@ -38,7 +54,7 @@ const colorHours = (hours) => {
 
 // Adds up the minutes and calculates the hours from them
 input.addEventListener('input', () => {
-	input.value !== '' ? 
+	input.value !== '' ?
 		clearBtn.classList.add('visible') :
 		clearBtn.classList.remove('visible');
 
@@ -51,8 +67,11 @@ input.addEventListener('input', () => {
 
 	totalHours = (totalMinutes / 60).toFixed(2);
 	totalHoursOutput = totalHours.toString().replace('.', ',');
+	console.log(totalHoursOutput);
 
-	result.textContent = totalHoursOutput;
+	totalHoursOutput === '0,00' ?
+		result.textContent = 0 :
+		result.textContent = totalHoursOutput;
 
 	colorHours(totalHours);
 })
@@ -66,8 +85,9 @@ clearBtn.addEventListener('click', () => {
 	input.value = '';
 	clearBtn.classList.remove('visible');
 	input.focus();
-	result.textContent = '0';
-	result.style.backgroundColor = 'transparent';
+	totalHours = 0;
+	result.textContent = totalHours;
+	colorHours(totalHours);
 });
 
 // Copy output to clipboard & show notification bubble:
@@ -80,3 +100,11 @@ copy.addEventListener('click', () => {
 		alert.classList.remove('show');
 	}, 3000);
 });
+
+// Switches light/dark mode:
+modeSwitcherBtn.addEventListener('click', () => {
+	body.classList.toggle('dark-mode');
+	body.classList.contains('dark-mode') ?
+		localStorage.setItem("dark-mode", "true") :
+		localStorage.setItem("dark-mode", "false");
+})

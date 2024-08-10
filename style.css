@@ -3,10 +3,17 @@ body {
 	font-weight: 400;
 	font-style: normal;
 	font-size: 18px;
+	transition: all .25s ease-in-out;
+}
+
+body.dark-mode {
+	background-color: #555;
+	color: #90ee90;
 }
 
 .container {
-	margin: 0 auto;
+	position: relative;
+	margin: 5% auto 0;
 	padding: 0 10px;
 	max-width: 1640px;
 	text-align: center;
@@ -23,6 +30,17 @@ body {
 	position: relative;
 	margin: 10px auto;
 	width: 50%;
+}
+
+.label,
+.result-label {
+	color: #000;
+	transition: color .25s ease-in-out;
+}
+
+.dark-mode .label,
+.dark-mode .result-label {
+	color: #90ee90;
 }
 
 .input {
@@ -42,10 +60,11 @@ body {
 	border: 0;
 	width: 30px;
 	height: 30px;
-	background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgd2lkdGg9IjgwMHB4IiBoZWlnaHQ9IjgwMHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQo8cGF0aCBkPSJNNy41MDAwNiA1LjVMNC4wNTI2MiAxMC43OTA5QzMuNzEzODcgMTEuMzEwNyAzLjY5NzMyIDExLjk3NzIgNC4wMDk4NCAxMi41MTMzTDcuNTAwMDYgMTguNUgxOC44NTg4QzE5Ljc2NTEgMTguNSAyMC40OTk5IDE3Ljc2NTMgMjAuNDk5OSAxNi44NTg5VjcuMTQxMDlDMjAuNDk5OSA2LjIzNDc0IDE5Ljc2NTEgNS41IDE4Ljg1ODggNS41SDcuNTAwMDZaIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPg0KPHBhdGggZD0iTTEwIDguNUwxNyAxNS41IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPg0KPHBhdGggZD0iTTEwIDE1LjVMMTYuOTMwMyA4LjQ5OTk2IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPg0KPC9zdmc+") center/contain;
+	background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgd2lkdGg9IjgwMHB4IiBoZWlnaHQ9IjgwMHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQo8cGF0aCBkPSJNNy41MDAwNiA1LjVMNC4wNTI2MiAxMC43OTA5QzMuNzEzODcgMTEuMzEwNyAzLjY5NzMyIDExLjk3NzIgNC4wMDk4NCAxMi41MTMzTDcuNTAwMDYgMTguNUgxOC44NTg4QzE5Ljc2NTEgMTguNSAyMC40OTk5IDE3Ljc2NTMgMjAuNDk5OSAxNi44NTg5VjcuMTQxMDlDMjAuNDk5OSA2LjIzNDc0IDE5Ljc2NTEgNS41IDE4Ljg1ODggNS41SDcuNTAwMDZaIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPg0KPHBhdGggZD0iTTEwIDguNUwxNyAxNS41IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPg0KPHBhdGggZD0iTTEwIDE1LjVMMTYuOTMwMyA4LjQ5OTk2IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPg0KPC9zdmc+") no-repeat center/contain;
 	transition: opacity .2s ease-in;
 }
-.input-clear-btn.visible  {
+
+.input-clear-btn.visible {
 	cursor: pointer;
 	pointer-events: all;
 	opacity: 1;
@@ -74,10 +93,6 @@ body {
 	background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M16 0c8.836 0 16 7.164 16 16s-7.164 16-16 16S0 24.836 0 16 7.164 0 16 0Zm0 0" style="stroke:none;fill-rule:evenodd;fill:%2390ee90;fill-opacity:1"/><path d="M10.25 8.5h7.418c3.2187 0 5.832 2.6133 5.832 5.832v7.418a4.1708 4.1708 0 0 0 2.1133-1.1367 4.1625 4.1625 0 0 0 1.2187-2.9453V9.332a4.1625 4.1625 0 0 0-1.2187-2.9453A4.1625 4.1625 0 0 0 22.668 5.168h-8.336a4.1625 4.1625 0 0 0-2.9453 1.2187A4.1708 4.1708 0 0 0 10.25 8.5Zm0 0" style="stroke:none;fill-rule:evenodd;fill:%23333;fill-opacity:1"/><path d="M21.832 14.332a4.1625 4.1625 0 0 0-1.2187-2.9453 4.1625 4.1625 0 0 0-2.9453-1.2187H9.332a4.1625 4.1625 0 0 0-2.9453 1.2187A4.1625 4.1625 0 0 0 5.168 14.332v8.336c0 1.1054.4375 2.164 1.2187 2.9453A4.1625 4.1625 0 0 0 9.332 26.832h8.336a4.1625 4.1625 0 0 0 2.9453-1.2187 4.1625 4.1625 0 0 0 1.2187-2.9453Zm-12.5 8.336h8.336c.457 0 .832-.375.832-.836 0-.457-.375-.832-.832-.832H9.332c-.457 0-.832.375-.832.832 0 .461.375.836.832.836Zm0-3.336h8.336c.457 0 .832-.371.832-.832 0-.461-.375-.832-.832-.832H9.332c-.457 0-.832.371-.832.832 0 .461.375.832.832.832Zm0-3.332h8.336c.457 0 .832-.375.832-.832 0-.461-.375-.836-.832-.836H9.332c-.457 0-.832.375-.832.836 0 .457.375.832.832.832Zm0 0" style="stroke:none;fill-rule:evenodd;fill:%23333;fill-opacity:1"/></svg>');
 }
 
-.copy__btn:active {
-	background-color: #90ee90;
-}
-
 .copy__alert {
 	opacity: 0;
 	display: block;
@@ -99,4 +114,20 @@ body {
 .copy__alert.show {
 	bottom: -70px;
 	opacity: 1;
+}
+
+.switch-mode-btn {
+	position: absolute;
+	top: -15%;
+	right: 5%;
+	cursor: pointer;
+	border: none;
+	background-color: transparent;
+}
+.switch-mode-btn svg {
+	fill: #000;
+	transition: fill .25s ease-in-out;
+}
+.dark-mode .switch-mode-btn svg {
+	fill: #90ee90;
 }
