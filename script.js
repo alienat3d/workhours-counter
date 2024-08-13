@@ -10,10 +10,9 @@ const modeSwitcherBtn = document.querySelector('.switch-mode-btn');
 
 let totalHours;
 let totalHoursOutput;
-console.log(localStorage.getItem("dark-mode"));
 
 // Determines, which color mode user picked last time
-localStorage.getItem("dark-mode") ? 
+localStorage.getItem("dark-mode") ?
 	body.classList.add('dark-mode') :
 	body.classList.remove('dark-mode');
 
@@ -68,7 +67,6 @@ input.addEventListener('input', () => {
 
 	totalHours = (totalMinutes / 60).toFixed(2);
 	totalHoursOutput = totalHours.toString().replace('.', ',');
-	console.log(totalHoursOutput);
 
 	totalHoursOutput === '0,00' ?
 		result.textContent = 0 :
@@ -92,13 +90,15 @@ clearBtn.addEventListener('click', () => {
 
 // Copy output to clipboard & show notification bubble:
 copy.addEventListener('click', () => {
-	navigator.clipboard.writeText(totalHoursOutput);
+	if (+result.textContent !== 0) {
+		navigator.clipboard.writeText(totalHoursOutput);
 
-	alert.classList.add('show');
+		alert.classList.add('show');
 
-	setTimeout(() => {
-		alert.classList.remove('show');
-	}, 3000);
+		setTimeout(() => {
+			alert.classList.remove('show');
+		}, 3000);
+	}
 });
 
 // Switches light/dark mode:
