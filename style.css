@@ -121,6 +121,7 @@ body.dark-mode {
 	width: min-content;
 	height: 47px;
 	font-size: 40px;
+	line-height: 37px;
 }
 
 .copy {
@@ -161,7 +162,7 @@ body.dark-mode {
 
 .switch-mode-btn {
 	position: absolute;
-	bottom: 40px;
+	bottom: 15%;
 	right: 20px;
 	cursor: pointer;
 	border: none;
